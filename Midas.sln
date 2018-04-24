@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27130.2027
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Midas.Desktop", "Midas.Desktop\Midas.Desktop.csproj", "{AEA7B2E8-3B15-4723-8F27-768E82A7CBAA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Midas.Model", "Midas.Model\Midas.Model.csproj", "{AC4BECB4-C25D-479E-8F73-C37CF8C8A041}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{AEA7B2E8-3B15-4723-8F27-768E82A7CBAA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AEA7B2E8-3B15-4723-8F27-768E82A7CBAA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AEA7B2E8-3B15-4723-8F27-768E82A7CBAA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AEA7B2E8-3B15-4723-8F27-768E82A7CBAA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AC4BECB4-C25D-479E-8F73-C37CF8C8A041}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC4BECB4-C25D-479E-8F73-C37CF8C8A041}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC4BECB4-C25D-479E-8F73-C37CF8C8A041}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC4BECB4-C25D-479E-8F73-C37CF8C8A041}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {31ECD3DB-222D-411A-904D-184ECBEA18F0}
+	EndGlobalSection
+EndGlobal

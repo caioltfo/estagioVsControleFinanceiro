@@ -1,0 +1,216 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{AEA7B2E8-3B15-4723-8F27-768E82A7CBAA}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Midas.Desktop</RootNamespace>
+    <AssemblyName>Midas.Desktop</AssemblyName>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>Midas.Desktop.Program</StartupObject>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_autenticaForne.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_autenticaForne.Designer.cs">
+      <DependentUpon>Form_autenticaForne.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_cadastro.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_cadastro.Designer.cs">
+      <DependentUpon>Form_cadastro.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_login.Designer.cs">
+      <DependentUpon>Form_login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="fornecedores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="fornecedores.Designer.cs">
+      <DependentUpon>fornecedores.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmIndex.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmIndex.Designer.cs">
+      <DependentUpon>frmIndex.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_autentica.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_autentica.Designer.cs">
+      <DependentUpon>frm_autentica.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GlobalVar.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_autenticaForne.resx">
+      <DependentUpon>Form_autenticaForne.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_cadastro.resx">
+      <DependentUpon>Form_cadastro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_login.resx">
+      <DependentUpon>Form_login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="fornecedores.resx">
+      <DependentUpon>fornecedores.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmIndex.resx">
+      <DependentUpon>frmIndex.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_autentica.resx">
+      <DependentUpon>frm_autentica.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-crowdfunding-96.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\porco-cofre.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\porco-cofre1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\8ba9bcf894e97e2286ff277a051a16ee.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\loading-v1.0.gif" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\clients.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-conference-96.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-circled-user-male-skin-type-6-96.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-fornecedor-96.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-documents-folder-96.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-organization-96.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-museum-96.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-receipt-96.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-presentation-96.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-senha-96.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-cancel-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-login-arredondado-à-direita-96.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-login-arredondado-à-direita-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-plus-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-circled-user-male-skin-type-6-961.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-senha-961.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-login-arredondado-à-direita-481.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Midas.Model\Midas.Model.csproj">
+      <Project>{ac4becb4-c25d-479e-8f73-c37cf8c8a041}</Project>
+      <Name>Midas.Model</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-plus-481.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
