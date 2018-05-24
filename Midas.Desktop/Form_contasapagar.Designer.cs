@@ -34,8 +34,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.Pesquisa = new System.Windows.Forms.GroupBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.textBox_pesquisa = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.comboBox_categoria = new System.Windows.Forms.ComboBox();
@@ -92,6 +90,7 @@
             this.button_rel = new System.Windows.Forms.Button();
             this.button_baixa = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.textBox_pesquisa = new System.Windows.Forms.MaskedTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_movimentos)).BeginInit();
             this.Pesquisa.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -132,7 +131,6 @@
             // 
             // Pesquisa
             // 
-            this.Pesquisa.Controls.Add(this.groupBox1);
             this.Pesquisa.Controls.Add(this.textBox_pesquisa);
             this.Pesquisa.Controls.Add(this.label5);
             this.Pesquisa.Controls.Add(this.label4);
@@ -145,22 +143,6 @@
             this.Pesquisa.TabIndex = 10;
             this.Pesquisa.TabStop = false;
             this.Pesquisa.Text = "Pesquisa específica";
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Location = new System.Drawing.Point(86, 94);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(200, 100);
-            this.groupBox1.TabIndex = 16;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "groupBox1";
-            // 
-            // textBox_pesquisa
-            // 
-            this.textBox_pesquisa.Location = new System.Drawing.Point(366, 21);
-            this.textBox_pesquisa.Name = "textBox_pesquisa";
-            this.textBox_pesquisa.Size = new System.Drawing.Size(274, 20);
-            this.textBox_pesquisa.TabIndex = 15;
             // 
             // label5
             // 
@@ -191,6 +173,7 @@
             this.comboBox_categoria.Name = "comboBox_categoria";
             this.comboBox_categoria.Size = new System.Drawing.Size(253, 21);
             this.comboBox_categoria.TabIndex = 12;
+            this.comboBox_categoria.SelectedIndexChanged += new System.EventHandler(this.comboBox_categoria_SelectedIndexChanged);
             // 
             // button_pesquisa
             // 
@@ -783,6 +766,13 @@
             this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button1.UseVisualStyleBackColor = false;
             // 
+            // textBox_pesquisa
+            // 
+            this.textBox_pesquisa.Location = new System.Drawing.Point(366, 19);
+            this.textBox_pesquisa.Name = "textBox_pesquisa";
+            this.textBox_pesquisa.Size = new System.Drawing.Size(268, 20);
+            this.textBox_pesquisa.TabIndex = 15;
+            // 
             // Form_contasapagar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -871,8 +861,6 @@
         private System.Windows.Forms.Panel panel10;
         private System.Windows.Forms.Label label_entrada;
         private System.Windows.Forms.Label label_saida;
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.TextBox textBox_pesquisa;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox comboBox_categoria;
@@ -886,5 +874,6 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.MaskedTextBox textBox_pesquisa;
     }
 }

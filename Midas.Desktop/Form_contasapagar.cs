@@ -360,9 +360,26 @@ namespace Midas.Desktop
         
         private void button_pesquisa_Click(object sender, EventArgs e)
         {
+           if(comboBox_categoria.SelectedIndex == 0)
+            {
+                dataGridView_movimentos.DataSource = Servico.buscarMov_lancamentoPorDataLancamento(Convert.ToDateTime(textBox_pesquisa.Text),0);
+                pintarCelulas();
+                somarTotais(true);
+                
+            }else if(comboBox_categoria.SelectedIndex == 1)
+            {
+                dataGridView_movimentos.DataSource = Servico.buscarMov_lancamentoPorDataVencimento(Convert.ToDateTime(textBox_pesquisa.Text), 0);
+                pintarCelulas();
+                somarTotais(true);
+            }
+           else if(comboBox_categoria.SelectedIndex == 2)
+            {
+                dataGridView_movimentos.DataSource = Servico.buscarMov_lancamentoPorFavorecido(textBox_pesquisa.Text, 0);
+                pintarCelulas();
+                somarTotais(true);
+            }
            
            
-            pintarCelulas();
         }
         public String favorecido;
         public DataGridViewRow row;
@@ -420,6 +437,18 @@ namespace Midas.Desktop
         {
             dataGridView_movimentos.DataSource = atualizarTodosPagos();
             pintarCelulas();
+        }
+
+        private void comboBox_categoria_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if(comboBox_categoria.SelectedIndex == 0 || comboBox_categoria.SelectedIndex == 1)
+            {
+                textBox_pesquisa.Mask = "00/00/0000";
+            }
+            else
+            {
+                textBox_pesquisa.Mask = "";
+            }
         }
     }
 }
