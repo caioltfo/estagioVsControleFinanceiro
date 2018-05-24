@@ -67,11 +67,13 @@ namespace Midas.Desktop
             Program.USER = _USER;
             string senha = textBox_senha.Text;
             List<Usuario> u = new List<Usuario>();
-            u = Servico.buscarUsuarios();
+            u = Servico.buscarUsuarios(1);
             foreach(Usuario us in u)
             {
+                
                 if(us.Senha_usuario.Equals(senha) && us.User_usuario.Equals(_USER))
                 {
+                    Program.ID_USER = us.Id_usuario;
                     frmIndex frm = new frmIndex();
                     frm.Show();
                     this.Hide();

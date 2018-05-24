@@ -13,7 +13,7 @@ namespace Midas.Desktop
         /// </summary>
         //[STAThread]
         public static string USER;
-        
+        public static Int64 ID_USER;
         public static void Main()
         {
             Application.EnableVisualStyles();

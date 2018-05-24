@@ -36,7 +36,7 @@ namespace Midas.Desktop
         private void Form_cadastro_Load(object sender, EventArgs e)
         {
             List<Empresa> em = new List<Empresa>();
-            em = Servico.buscarEmpresa();
+            em = Servico.buscarEmpresa(1);
             foreach(Empresa emp in em)
             {
                 comboBox_empresa.Items.Add(emp.Nome_empresa);
@@ -64,7 +64,7 @@ namespace Midas.Desktop
 
         private void button_cadastrar_Click(object sender, EventArgs e)
         {
-            if(Servico.validaEmail(textBox_email.Text) && Servico.validaUsuario(textBox_user.Text))
+            if(Servico.validaEmail(textBox_email.Text) && Servico.validaUsuario(textBox_user.Text,1))
             {
                 Usuario us = new Usuario();
 
@@ -72,9 +72,9 @@ namespace Midas.Desktop
                 us.Salario_usuario = Convert.ToDecimal(textBox_salario.Text.Replace(",", "."));
                 us.Senha_usuario = textBox_senha.Text;
                 us.Email_usuario = textBox_email.Text;
-                us.Empresa.Id_empresa = Servico.buscarIdEmpresaPorNomeEmpresa(comboBox_empresa.SelectedText);
+                us.Empresa.Id_empresa = Servico.buscarIdEmpresaPorNomeEmpresa(comboBox_empresa.SelectedText,1);
 
-                Servico.salvar(us, comboBox_nivel.SelectedItem.ToString());
+                //Servico.salvar(us, comboBox_nivel.SelectedItem.ToString());
             }else
             {
                 MessageBox.Show("Usuario já foi escolido e E-mail está inválido","Midas-Controle Finaceiro", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -129,7 +129,7 @@ namespace Midas.Desktop
 
         private void textBox_user_TextChanged(object sender, EventArgs e)
         {
-            if (Servico.validaUsuario(textBox_user.Text) == true)
+            if (Servico.validaUsuario(textBox_user.Text, 0) == true)
             {
                 label9.Text = "Usuario Válido";
                 label9.ForeColor = Color.Green;

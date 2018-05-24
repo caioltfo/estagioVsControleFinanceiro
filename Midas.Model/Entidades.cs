@@ -11,8 +11,11 @@ namespace Midas.Model.Entidades
     {
         private Int64 id_empresa;
         private String nome_empresa;
+        private int excluido;
+        public int Excluido { get => excluido; set => excluido = value; }
         public long Id_empresa { get => id_empresa; set => id_empresa = value; }
         public string Nome_empresa { get => nome_empresa; set => nome_empresa = value; }
+        
     }
     public class Usuario
     {
@@ -24,7 +27,8 @@ namespace Midas.Model.Entidades
         private int nivel_usuario;
         private Decimal salario_usuario;
         private Empresa empresa;
-        
+        private int excluido;
+        public int Excluido { get => excluido; set => excluido = value; }
         public long Id_usuario { get => id_usuario; set => id_usuario = value; }
         public string User_usuario { get => user_usuario; set => user_usuario = value; }
         public string Senha_usuario { get => senha_usuario; set => senha_usuario = value; }
@@ -40,7 +44,8 @@ namespace Midas.Model.Entidades
         private String descricao_doc;
         private String obs_doc;
         private Usuario usuario_manutencao_documentos;
-
+        private int excluido;
+        public int Excluido { get => excluido; set => excluido = value; }
         public long Id_doc { get => id_doc; set => id_doc = value; }
         public string Descricao_doc { get => descricao_doc; set => descricao_doc = value; }
         public string Obs_doc { get => obs_doc; set => obs_doc = value; }
@@ -59,7 +64,8 @@ namespace Midas.Model.Entidades
         private String obs_banco;
         private Empresa empresa;
         private Usuario usuario_manutencao_banco;
-
+        private int excluido;
+        public int Excluido { get => excluido; set => excluido = value; }
         public long Id_banco { get => id_banco; set => id_banco = value; }
         public string Nome_banco { get => nome_banco; set => nome_banco = value; }
         public long Nro_banco { get => nro_banco; set => nro_banco = value; }
@@ -95,7 +101,8 @@ namespace Midas.Model.Entidades
         private Int64 celular_gerente_fornecedor;
         private String obd_fornecedor;
         private Usuario usuario_manutencao_fornecedor;
-
+        private int excluido;
+        public int Excluido { get => excluido; set => excluido = value; }
         public long Id_fornecedor { get => id_fornecedor; set => id_fornecedor = value; }
         public string Cpf_fornecedor { get => cpf_fornecedor; set => cpf_fornecedor = value; }
         public string Cnpj_fornecedor { get => cnpj_fornecedor; set => cnpj_fornecedor = value; }
@@ -132,7 +139,8 @@ namespace Midas.Model.Entidades
         private Decimal saldo_a_pagar;
         private int pago;
         private DateTime data_pagamento;
-
+        private int excluido;
+        public int Excluido { get => excluido; set => excluido = value; }
         public long Id_lancamento { get => id_lancamento; set => id_lancamento = value; }
         public string Favorecido { get => favorecido; set => favorecido = value; }
         public DateTime Data_lancamento { get => data_lancamento; set => data_lancamento = value; }

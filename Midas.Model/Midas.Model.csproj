@@ -69,6 +69,11 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="bd_MidasDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>bd_MidasDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Servico.cs" />
     <Compile Include="Entidades.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -90,6 +95,17 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="app.config" />
+    <None Include="bd_MidasDataSet.xsc">
+      <DependentUpon>bd_MidasDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="bd_MidasDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>bd_MidasDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="bd_MidasDataSet.xss">
+      <DependentUpon>bd_MidasDataSet.xsd</DependentUpon>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

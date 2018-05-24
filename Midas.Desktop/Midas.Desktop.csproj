@@ -11,6 +11,21 @@
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -35,8 +50,15 @@
     <StartupObject>Midas.Desktop.Program</StartupObject>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.VisualStudio.Web.BrowserLink.12.0, Version=15.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Windows" />
+    <Reference Include="System.Windows.Controls.Ribbon" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Windows.Forms.DataVisualization.Design" />
+    <Reference Include="System.Windows.Input.Manipulations" />
+    <Reference Include="System.Windows.Presentation" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -48,6 +70,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="bd_MidasDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>bd_MidasDataSet.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -66,11 +93,29 @@
     <Compile Include="Form_cadastro.Designer.cs">
       <DependentUpon>Form_cadastro.cs</DependentUpon>
     </Compile>
+    <Compile Include="Form_contasapagar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_contasapagar.Designer.cs">
+      <DependentUpon>Form_contasapagar.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form_login.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form_login.Designer.cs">
       <DependentUpon>Form_login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="form_novo_lancamento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="form_novo_lancamento.Designer.cs">
+      <DependentUpon>form_novo_lancamento.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_pesq_favorecido.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_pesq_favorecido.Designer.cs">
+      <DependentUpon>Form_pesq_favorecido.cs</DependentUpon>
     </Compile>
     <Compile Include="fornecedores.cs">
       <SubType>Form</SubType>
@@ -84,11 +129,47 @@
     <Compile Include="frmIndex.Designer.cs">
       <DependentUpon>frmIndex.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmRelatorioNomeFornecedor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmRelatorioNomeFornecedor.Designer.cs">
+      <DependentUpon>frmRelatorioNomeFornecedor.cs</DependentUpon>
+    </Compile>
     <Compile Include="frm_autentica.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frm_autentica.Designer.cs">
       <DependentUpon>frm_autentica.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_banco.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_banco.Designer.cs">
+      <DependentUpon>frm_banco.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_doc.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_doc.Designer.cs">
+      <DependentUpon>frm_doc.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_empresa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_empresa.Designer.cs">
+      <DependentUpon>frm_empresa.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_fornecedor_excluidos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_fornecedor_excluidos.Designer.cs">
+      <DependentUpon>frm_fornecedor_excluidos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frm_user.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frm_user.Designer.cs">
+      <DependentUpon>frm_user.cs</DependentUpon>
     </Compile>
     <Compile Include="GlobalVar.cs" />
     <Compile Include="Program.cs" />
@@ -102,8 +183,17 @@
     <EmbeddedResource Include="Form_cadastro.resx">
       <DependentUpon>Form_cadastro.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Form_contasapagar.resx">
+      <DependentUpon>Form_contasapagar.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form_login.resx">
       <DependentUpon>Form_login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="form_novo_lancamento.resx">
+      <DependentUpon>form_novo_lancamento.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_pesq_favorecido.resx">
+      <DependentUpon>Form_pesq_favorecido.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="fornecedores.resx">
       <DependentUpon>fornecedores.cs</DependentUpon>
@@ -111,8 +201,26 @@
     <EmbeddedResource Include="frmIndex.resx">
       <DependentUpon>frmIndex.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmRelatorioNomeFornecedor.resx">
+      <DependentUpon>frmRelatorioNomeFornecedor.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frm_autentica.resx">
       <DependentUpon>frm_autentica.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_banco.resx">
+      <DependentUpon>frm_banco.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_doc.resx">
+      <DependentUpon>frm_doc.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_empresa.resx">
+      <DependentUpon>frm_empresa.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_fornecedor_excluidos.resx">
+      <DependentUpon>frm_fornecedor_excluidos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frm_user.resx">
+      <DependentUpon>frm_user.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -124,6 +232,18 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <None Include="bd_MidasDataSet.xsc">
+      <DependentUpon>bd_MidasDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="bd_MidasDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>bd_MidasDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="bd_MidasDataSet.xss">
+      <DependentUpon>bd_MidasDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -211,6 +331,58 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\icons8-plus-481.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.6.1 %28x86 e x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\erro.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\ok.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-trash-48.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <COMReference Include="AdHocReportingExcelClientLib">
+      <Guid>{8E47F3A2-81A4-468E-A401-E1DEBBAE2D8D}</Guid>
+      <VersionMajor>1</VersionMajor>
+      <VersionMinor>4</VersionMinor>
+      <Lcid>0</Lcid>
+      <WrapperTool>tlbimp</WrapperTool>
+      <Isolated>False</Isolated>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </COMReference>
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\icons8-plus-482.png" />
+    <None Include="Resources\icons8-baixar-atualizações-64.png" />
+    <None Include="Resources\icons8-para-baixo-2-48.png" />
+    <None Include="Resources\icons8-impressão-48.png" />
+    <None Include="Resources\icons8-login-arredondado-à-direita-482.png" />
+    <None Include="Resources\icons8-pesquisar-48.png" />
+    <None Include="Resources\icons8-mais-24.png" />
+    <None Include="Resources\icons8-pesquisar-481.png" />
+    <None Include="Resources\icons8-atualizar-direito-31-64.png" />
+    <None Include="Resources\icons8-reiniciar-48.png" />
+    <None Include="Resources\icons8-plus-483.png" />
+    <None Include="Resources\icons8-mais-241.png" />
+    <None Include="Resources\icons8-no-entry-48.png" />
+    <None Include="Resources\icons8-cash-in-hand-48.png" />
+    <Content Include="Resources\logo.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

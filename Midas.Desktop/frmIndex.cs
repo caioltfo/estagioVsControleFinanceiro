@@ -7,6 +7,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Midas.Model.Servico;
+using Midas.Model.Entidades;
+using System.Data.SqlClient;
+
 
 namespace Midas.Desktop
 {
@@ -36,6 +40,9 @@ namespace Midas.Desktop
 
         private void usuariosToolStripMenuItem_Click(object sender, EventArgs e)
         {
+            frm_user frm = new frm_user(false);
+            frm.MdiParent = this;
+            frm.Show();
 
         }
 
@@ -64,6 +71,75 @@ namespace Midas.Desktop
         private void toolStripStatusLabel2_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void arquivoMortoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void clientesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tiposDeDocumentosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void cadastroToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void porNomeToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DialogResult res = MessageBox.Show("Deseja tira um relatório de fornecedores ordenado pela razão social?", "Midas - Controle Financeiro", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+            if (res == DialogResult.Yes)
+            {
+                frmRelatorioNomeFornecedor f = new frmRelatorioNomeFornecedor();
+                f.MdiParent = this;
+                f.Show();
+                
+            }
+        }
+
+        private void empresasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frm_empresa frm = new frm_empresa(false);
+            frm.MdiParent = this;
+            frm.Show();
+            
+        }
+
+        private void fornecedoresToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            frm_fornecedor_excluidos frm = new frm_fornecedor_excluidos(false);
+            frm.MdiParent = this;
+            frm.Show();
+        }
+
+        private void bancosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frm_banco frm = new frm_banco(false);
+            frm.MdiParent = this;
+            frm.Show();
+
+        }
+
+        private void documentosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frm_doc frm = new frm_doc(false);
+            frm.MdiParent = this;
+            frm.Show();
+        }
+
+        private void contasAPagarToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Form_contasapagar frm = new Form_contasapagar();
+            frm.MdiParent = this;
+            frm.Show();
         }
     }
 }

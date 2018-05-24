@@ -34,5 +34,16 @@ namespace Midas.Model.Properties {
                 this["Configuração"] = value;
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-RHJGKEG\\SQLEXPRESS;Initial Catalog=bd_Midas;Integrated Securi" +
+            "ty=True")]
+        public string bd_MidasConnectionString {
+            get {
+                return ((string)(this["bd_MidasConnectionString"]));
+            }
+        }
     }
 }

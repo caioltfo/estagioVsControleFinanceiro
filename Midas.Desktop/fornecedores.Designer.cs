@@ -29,15 +29,19 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(fornecedores));
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.pictureBox_email = new System.Windows.Forms.PictureBox();
+            this.pictureBox_site = new System.Windows.Forms.PictureBox();
+            this.pictureBox_fant = new System.Windows.Forms.PictureBox();
+            this.pictureBox_razao = new System.Windows.Forms.PictureBox();
+            this.pictureBox_cpf = new System.Windows.Forms.PictureBox();
             this.maskedTextBox_CELFOR = new System.Windows.Forms.MaskedTextBox();
             this.maskedTextBox_TELFOR = new System.Windows.Forms.MaskedTextBox();
             this.maskedTextBox_CEL = new System.Windows.Forms.MaskedTextBox();
             this.maskedTextBox_TEL = new System.Windows.Forms.MaskedTextBox();
             this.maskedTextBox_CNPJ = new System.Windows.Forms.MaskedTextBox();
             this.maskedTextBox_CPF = new System.Windows.Forms.MaskedTextBox();
-            this.label_CelGere = new System.Windows.Forms.Label();
-            this.label_TelGer = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
             this.textBox_Obs = new System.Windows.Forms.TextBox();
             this.label27 = new System.Windows.Forms.Label();
@@ -51,13 +55,6 @@
             this.label24 = new System.Windows.Forms.Label();
             this.textBox_numBanco = new System.Windows.Forms.TextBox();
             this.label22 = new System.Windows.Forms.Label();
-            this.label_email = new System.Windows.Forms.Label();
-            this.label_cel = new System.Windows.Forms.Label();
-            this.label_site = new System.Windows.Forms.Label();
-            this.label_tel = new System.Windows.Forms.Label();
-            this.label_fant = new System.Windows.Forms.Label();
-            this.label_razao = new System.Windows.Forms.Label();
-            this.label_cpf = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.textBox_compEnd = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
@@ -83,6 +80,7 @@
             this.toolStripButton_salvar = new System.Windows.Forms.ToolStripButton();
             this.toolStripButton_excluir = new System.Windows.Forms.ToolStripButton();
             this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.button_todos = new System.Windows.Forms.Button();
             this.textBox_pesquisa = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.cmb_categoria = new System.Windows.Forms.ComboBox();
@@ -92,6 +90,11 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_email)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_site)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_fant)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_razao)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_cpf)).BeginInit();
             this.toolStrip1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dtg_for)).BeginInit();
@@ -100,14 +103,17 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.pictureBox_email);
+            this.tabPage2.Controls.Add(this.pictureBox_site);
+            this.tabPage2.Controls.Add(this.pictureBox_fant);
+            this.tabPage2.Controls.Add(this.pictureBox_razao);
+            this.tabPage2.Controls.Add(this.pictureBox_cpf);
             this.tabPage2.Controls.Add(this.maskedTextBox_CELFOR);
             this.tabPage2.Controls.Add(this.maskedTextBox_TELFOR);
             this.tabPage2.Controls.Add(this.maskedTextBox_CEL);
             this.tabPage2.Controls.Add(this.maskedTextBox_TEL);
             this.tabPage2.Controls.Add(this.maskedTextBox_CNPJ);
             this.tabPage2.Controls.Add(this.maskedTextBox_CPF);
-            this.tabPage2.Controls.Add(this.label_CelGere);
-            this.tabPage2.Controls.Add(this.label_TelGer);
             this.tabPage2.Controls.Add(this.label30);
             this.tabPage2.Controls.Add(this.textBox_Obs);
             this.tabPage2.Controls.Add(this.label27);
@@ -121,13 +127,6 @@
             this.tabPage2.Controls.Add(this.label24);
             this.tabPage2.Controls.Add(this.textBox_numBanco);
             this.tabPage2.Controls.Add(this.label22);
-            this.tabPage2.Controls.Add(this.label_email);
-            this.tabPage2.Controls.Add(this.label_cel);
-            this.tabPage2.Controls.Add(this.label_site);
-            this.tabPage2.Controls.Add(this.label_tel);
-            this.tabPage2.Controls.Add(this.label_fant);
-            this.tabPage2.Controls.Add(this.label_razao);
-            this.tabPage2.Controls.Add(this.label_cpf);
             this.tabPage2.Controls.Add(this.label15);
             this.tabPage2.Controls.Add(this.textBox_compEnd);
             this.tabPage2.Controls.Add(this.label13);
@@ -152,33 +151,92 @@
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(969, 405);
+            this.tabPage2.Size = new System.Drawing.Size(1104, 435);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Cadastro e Exclusão";
             this.tabPage2.UseVisualStyleBackColor = true;
             this.tabPage2.Click += new System.EventHandler(this.tabPage2_Click);
             // 
+            // pictureBox_email
+            // 
+            this.pictureBox_email.Image = global::Midas.Desktop.Properties.Resources.ok;
+            this.pictureBox_email.Location = new System.Drawing.Point(467, 244);
+            this.pictureBox_email.Name = "pictureBox_email";
+            this.pictureBox_email.Size = new System.Drawing.Size(24, 20);
+            this.pictureBox_email.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox_email.TabIndex = 66;
+            this.pictureBox_email.TabStop = false;
+            this.pictureBox_email.Visible = false;
+            // 
+            // pictureBox_site
+            // 
+            this.pictureBox_site.Image = global::Midas.Desktop.Properties.Resources.ok;
+            this.pictureBox_site.Location = new System.Drawing.Point(468, 181);
+            this.pictureBox_site.Name = "pictureBox_site";
+            this.pictureBox_site.Size = new System.Drawing.Size(23, 20);
+            this.pictureBox_site.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox_site.TabIndex = 64;
+            this.pictureBox_site.TabStop = false;
+            this.pictureBox_site.Visible = false;
+            this.pictureBox_site.Click += new System.EventHandler(this.pictureBox4_Click);
+            // 
+            // pictureBox_fant
+            // 
+            this.pictureBox_fant.Image = global::Midas.Desktop.Properties.Resources.ok;
+            this.pictureBox_fant.Location = new System.Drawing.Point(468, 118);
+            this.pictureBox_fant.Name = "pictureBox_fant";
+            this.pictureBox_fant.Size = new System.Drawing.Size(23, 21);
+            this.pictureBox_fant.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox_fant.TabIndex = 62;
+            this.pictureBox_fant.TabStop = false;
+            this.pictureBox_fant.Visible = false;
+            this.pictureBox_fant.Click += new System.EventHandler(this.pictureBox2_Click);
+            // 
+            // pictureBox_razao
+            // 
+            this.pictureBox_razao.Image = global::Midas.Desktop.Properties.Resources.ok;
+            this.pictureBox_razao.Location = new System.Drawing.Point(467, 86);
+            this.pictureBox_razao.Name = "pictureBox_razao";
+            this.pictureBox_razao.Size = new System.Drawing.Size(24, 23);
+            this.pictureBox_razao.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox_razao.TabIndex = 61;
+            this.pictureBox_razao.TabStop = false;
+            this.pictureBox_razao.Visible = false;
+            this.pictureBox_razao.Click += new System.EventHandler(this.pictureBox1_Click_1);
+            // 
+            // pictureBox_cpf
+            // 
+            this.pictureBox_cpf.Image = global::Midas.Desktop.Properties.Resources.ok;
+            this.pictureBox_cpf.Location = new System.Drawing.Point(467, 41);
+            this.pictureBox_cpf.Name = "pictureBox_cpf";
+            this.pictureBox_cpf.Size = new System.Drawing.Size(24, 20);
+            this.pictureBox_cpf.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBox_cpf.TabIndex = 60;
+            this.pictureBox_cpf.TabStop = false;
+            this.pictureBox_cpf.Visible = false;
+            this.pictureBox_cpf.Click += new System.EventHandler(this.pictureBox1_Click);
+            // 
             // maskedTextBox_CELFOR
             // 
             this.maskedTextBox_CELFOR.Enabled = false;
-            this.maskedTextBox_CELFOR.Location = new System.Drawing.Point(648, 247);
+            this.maskedTextBox_CELFOR.Location = new System.Drawing.Point(738, 251);
             this.maskedTextBox_CELFOR.Mask = "(00) 00000-0000";
             this.maskedTextBox_CELFOR.Name = "maskedTextBox_CELFOR";
             this.maskedTextBox_CELFOR.Size = new System.Drawing.Size(248, 20);
             this.maskedTextBox_CELFOR.TabIndex = 59;
-            this.maskedTextBox_CELFOR.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
             this.maskedTextBox_CELFOR.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.maskedTextBox_CELFOR_MaskInputRejected);
+            this.maskedTextBox_CELFOR.TextChanged += new System.EventHandler(this.maskedTextBox_CELFOR_TextChanged);
             // 
             // maskedTextBox_TELFOR
             // 
             this.maskedTextBox_TELFOR.Enabled = false;
-            this.maskedTextBox_TELFOR.Location = new System.Drawing.Point(648, 215);
+            this.maskedTextBox_TELFOR.Location = new System.Drawing.Point(738, 219);
             this.maskedTextBox_TELFOR.Mask = "(00) 0000-0000";
             this.maskedTextBox_TELFOR.Name = "maskedTextBox_TELFOR";
             this.maskedTextBox_TELFOR.Size = new System.Drawing.Size(248, 20);
             this.maskedTextBox_TELFOR.TabIndex = 58;
-            this.maskedTextBox_TELFOR.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
             this.maskedTextBox_TELFOR.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.maskedTextBox_TELFOR_MaskInputRejected);
+            this.maskedTextBox_TELFOR.TextChanged += new System.EventHandler(this.maskedTextBox_TELFOR_TextChanged);
             // 
             // maskedTextBox_CEL
             // 
@@ -188,8 +246,8 @@
             this.maskedTextBox_CEL.Name = "maskedTextBox_CEL";
             this.maskedTextBox_CEL.Size = new System.Drawing.Size(365, 20);
             this.maskedTextBox_CEL.TabIndex = 57;
-            this.maskedTextBox_CEL.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
             this.maskedTextBox_CEL.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.maskedTextBox_CEL_MaskInputRejected);
+            this.maskedTextBox_CEL.TextChanged += new System.EventHandler(this.maskedTextBox_CEL_TextChanged);
             // 
             // maskedTextBox_TEL
             // 
@@ -199,8 +257,8 @@
             this.maskedTextBox_TEL.Name = "maskedTextBox_TEL";
             this.maskedTextBox_TEL.Size = new System.Drawing.Size(365, 20);
             this.maskedTextBox_TEL.TabIndex = 56;
-            this.maskedTextBox_TEL.TextMaskFormat = System.Windows.Forms.MaskFormat.ExcludePromptAndLiterals;
             this.maskedTextBox_TEL.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.maskedTextBox_TEL_MaskInputRejected);
+            this.maskedTextBox_TEL.TextChanged += new System.EventHandler(this.maskedTextBox_TEL_TextChanged);
             // 
             // maskedTextBox_CNPJ
             // 
@@ -210,6 +268,7 @@
             this.maskedTextBox_CNPJ.Name = "maskedTextBox_CNPJ";
             this.maskedTextBox_CNPJ.Size = new System.Drawing.Size(170, 20);
             this.maskedTextBox_CNPJ.TabIndex = 55;
+            this.maskedTextBox_CNPJ.MaskInputRejected += new System.Windows.Forms.MaskInputRejectedEventHandler(this.maskedTextBox_CNPJ_MaskInputRejected);
             this.maskedTextBox_CNPJ.TextChanged += new System.EventHandler(this.maskedTextBox_CNPJ_TextChanged);
             // 
             // maskedTextBox_CPF
@@ -220,35 +279,15 @@
             this.maskedTextBox_CPF.Name = "maskedTextBox_CPF";
             this.maskedTextBox_CPF.Size = new System.Drawing.Size(158, 20);
             this.maskedTextBox_CPF.TabIndex = 54;
+            this.maskedTextBox_CPF.TextMaskFormat = System.Windows.Forms.MaskFormat.IncludePromptAndLiterals;
             this.maskedTextBox_CPF.TextChanged += new System.EventHandler(this.maskedTextBox_CPF_TextChanged);
-            // 
-            // label_CelGere
-            // 
-            this.label_CelGere.AutoSize = true;
-            this.label_CelGere.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_CelGere.Location = new System.Drawing.Point(904, 251);
-            this.label_CelGere.Name = "label_CelGere";
-            this.label_CelGere.Size = new System.Drawing.Size(51, 16);
-            this.label_CelGere.TabIndex = 52;
-            this.label_CelGere.Text = "valido";
-            this.label_CelGere.Visible = false;
-            // 
-            // label_TelGer
-            // 
-            this.label_TelGer.AutoSize = true;
-            this.label_TelGer.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_TelGer.Location = new System.Drawing.Point(902, 215);
-            this.label_TelGer.Name = "label_TelGer";
-            this.label_TelGer.Size = new System.Drawing.Size(51, 16);
-            this.label_TelGer.TabIndex = 51;
-            this.label_TelGer.Text = "valido";
-            this.label_TelGer.Visible = false;
-            this.label_TelGer.Click += new System.EventHandler(this.label_TelGer_Click);
+            this.maskedTextBox_CPF.Leave += new System.EventHandler(this.maskedTextBox_CPF_Leave);
+            this.maskedTextBox_CPF.Validating += new System.ComponentModel.CancelEventHandler(this.maskedTextBox_CPF_Validating);
             // 
             // label30
             // 
             this.label30.AutoSize = true;
-            this.label30.Location = new System.Drawing.Point(540, 283);
+            this.label30.Location = new System.Drawing.Point(630, 287);
             this.label30.Name = "label30";
             this.label30.Size = new System.Drawing.Size(68, 13);
             this.label30.TabIndex = 46;
@@ -257,7 +296,7 @@
             // textBox_Obs
             // 
             this.textBox_Obs.Enabled = false;
-            this.textBox_Obs.Location = new System.Drawing.Point(648, 280);
+            this.textBox_Obs.Location = new System.Drawing.Point(738, 284);
             this.textBox_Obs.Name = "textBox_Obs";
             this.textBox_Obs.Size = new System.Drawing.Size(248, 20);
             this.textBox_Obs.TabIndex = 45;
@@ -265,7 +304,7 @@
             // label27
             // 
             this.label27.AutoSize = true;
-            this.label27.Location = new System.Drawing.Point(541, 251);
+            this.label27.Location = new System.Drawing.Point(631, 255);
             this.label27.Name = "label27";
             this.label27.Size = new System.Drawing.Size(96, 13);
             this.label27.TabIndex = 44;
@@ -274,7 +313,7 @@
             // label28
             // 
             this.label28.AutoSize = true;
-            this.label28.Location = new System.Drawing.Point(540, 217);
+            this.label28.Location = new System.Drawing.Point(630, 221);
             this.label28.Name = "label28";
             this.label28.Size = new System.Drawing.Size(106, 13);
             this.label28.TabIndex = 42;
@@ -283,7 +322,7 @@
             // label25
             // 
             this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(541, 189);
+            this.label25.Location = new System.Drawing.Point(631, 193);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(92, 13);
             this.label25.TabIndex = 40;
@@ -292,7 +331,7 @@
             // textBox_NomeGerente
             // 
             this.textBox_NomeGerente.Enabled = false;
-            this.textBox_NomeGerente.Location = new System.Drawing.Point(648, 185);
+            this.textBox_NomeGerente.Location = new System.Drawing.Point(738, 189);
             this.textBox_NomeGerente.Name = "textBox_NomeGerente";
             this.textBox_NomeGerente.Size = new System.Drawing.Size(248, 20);
             this.textBox_NomeGerente.TabIndex = 39;
@@ -300,7 +339,7 @@
             // label26
             // 
             this.label26.AutoSize = true;
-            this.label26.Location = new System.Drawing.Point(540, 155);
+            this.label26.Location = new System.Drawing.Point(630, 159);
             this.label26.Name = "label26";
             this.label26.Size = new System.Drawing.Size(92, 13);
             this.label26.TabIndex = 38;
@@ -309,7 +348,7 @@
             // textBox_NumConta
             // 
             this.textBox_NumConta.Enabled = false;
-            this.textBox_NumConta.Location = new System.Drawing.Point(648, 152);
+            this.textBox_NumConta.Location = new System.Drawing.Point(738, 156);
             this.textBox_NumConta.Name = "textBox_NumConta";
             this.textBox_NumConta.Size = new System.Drawing.Size(248, 20);
             this.textBox_NumConta.TabIndex = 37;
@@ -317,7 +356,7 @@
             // label23
             // 
             this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(538, 122);
+            this.label23.Location = new System.Drawing.Point(628, 126);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(104, 13);
             this.label23.TabIndex = 36;
@@ -326,7 +365,7 @@
             // textBox_NumAg
             // 
             this.textBox_NumAg.Enabled = false;
-            this.textBox_NumAg.Location = new System.Drawing.Point(648, 118);
+            this.textBox_NumAg.Location = new System.Drawing.Point(738, 122);
             this.textBox_NumAg.Name = "textBox_NumAg";
             this.textBox_NumAg.Size = new System.Drawing.Size(248, 20);
             this.textBox_NumAg.TabIndex = 35;
@@ -334,7 +373,7 @@
             // label24
             // 
             this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(537, 88);
+            this.label24.Location = new System.Drawing.Point(627, 92);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(81, 13);
             this.label24.TabIndex = 34;
@@ -343,7 +382,7 @@
             // textBox_numBanco
             // 
             this.textBox_numBanco.Enabled = false;
-            this.textBox_numBanco.Location = new System.Drawing.Point(648, 85);
+            this.textBox_numBanco.Location = new System.Drawing.Point(738, 89);
             this.textBox_numBanco.Name = "textBox_numBanco";
             this.textBox_numBanco.Size = new System.Drawing.Size(250, 20);
             this.textBox_numBanco.TabIndex = 33;
@@ -352,89 +391,12 @@
             // 
             this.label22.AutoSize = true;
             this.label22.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.Location = new System.Drawing.Point(535, 40);
+            this.label22.Location = new System.Drawing.Point(625, 44);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(379, 21);
             this.label22.TabIndex = 32;
             this.label22.Text = "Banco do fornecedor:_________________________";
             this.label22.Visible = false;
-            // 
-            // label_email
-            // 
-            this.label_email.AutoSize = true;
-            this.label_email.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_email.Location = new System.Drawing.Point(463, 244);
-            this.label_email.Name = "label_email";
-            this.label_email.Size = new System.Drawing.Size(51, 16);
-            this.label_email.TabIndex = 31;
-            this.label_email.Text = "valido";
-            this.label_email.Visible = false;
-            // 
-            // label_cel
-            // 
-            this.label_cel.AutoSize = true;
-            this.label_cel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_cel.Location = new System.Drawing.Point(463, 211);
-            this.label_cel.Name = "label_cel";
-            this.label_cel.Size = new System.Drawing.Size(51, 16);
-            this.label_cel.TabIndex = 30;
-            this.label_cel.Text = "valido";
-            this.label_cel.Visible = false;
-            // 
-            // label_site
-            // 
-            this.label_site.AutoSize = true;
-            this.label_site.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_site.Location = new System.Drawing.Point(463, 183);
-            this.label_site.Name = "label_site";
-            this.label_site.Size = new System.Drawing.Size(51, 16);
-            this.label_site.TabIndex = 29;
-            this.label_site.Text = "valido";
-            this.label_site.Visible = false;
-            // 
-            // label_tel
-            // 
-            this.label_tel.AutoSize = true;
-            this.label_tel.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_tel.Location = new System.Drawing.Point(464, 152);
-            this.label_tel.Name = "label_tel";
-            this.label_tel.Size = new System.Drawing.Size(51, 16);
-            this.label_tel.TabIndex = 28;
-            this.label_tel.Text = "valido";
-            this.label_tel.Visible = false;
-            // 
-            // label_fant
-            // 
-            this.label_fant.AutoSize = true;
-            this.label_fant.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_fant.Location = new System.Drawing.Point(464, 122);
-            this.label_fant.Name = "label_fant";
-            this.label_fant.Size = new System.Drawing.Size(51, 16);
-            this.label_fant.TabIndex = 27;
-            this.label_fant.Text = "valido";
-            this.label_fant.Visible = false;
-            // 
-            // label_razao
-            // 
-            this.label_razao.AutoSize = true;
-            this.label_razao.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_razao.Location = new System.Drawing.Point(464, 89);
-            this.label_razao.Name = "label_razao";
-            this.label_razao.Size = new System.Drawing.Size(51, 16);
-            this.label_razao.TabIndex = 26;
-            this.label_razao.Text = "valido";
-            this.label_razao.Visible = false;
-            // 
-            // label_cpf
-            // 
-            this.label_cpf.AutoSize = true;
-            this.label_cpf.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_cpf.Location = new System.Drawing.Point(464, 44);
-            this.label_cpf.Name = "label_cpf";
-            this.label_cpf.Size = new System.Drawing.Size(51, 16);
-            this.label_cpf.TabIndex = 25;
-            this.label_cpf.Text = "valido";
-            this.label_cpf.Visible = false;
             // 
             // label15
             // 
@@ -532,6 +494,7 @@
             this.textBox_site.Size = new System.Drawing.Size(366, 20);
             this.textBox_site.TabIndex = 13;
             this.textBox_site.TextChanged += new System.EventHandler(this.textBox_site_TextChanged);
+            this.textBox_site.Leave += new System.EventHandler(this.textBox_site_Leave);
             // 
             // label10
             // 
@@ -624,7 +587,7 @@
             this.toolStripButton_excluir});
             this.toolStrip1.Location = new System.Drawing.Point(3, 3);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(963, 25);
+            this.toolStrip1.Size = new System.Drawing.Size(1098, 25);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -649,6 +612,7 @@
             this.toolStripButton_salvar.Size = new System.Drawing.Size(23, 22);
             this.toolStripButton_salvar.Text = "toolStripButton2";
             this.toolStripButton_salvar.ToolTipText = "Salvar o fornecedor";
+            this.toolStripButton_salvar.Click += new System.EventHandler(this.toolStripButton_salvar_Click);
             // 
             // toolStripButton_excluir
             // 
@@ -660,9 +624,11 @@
             this.toolStripButton_excluir.Size = new System.Drawing.Size(23, 22);
             this.toolStripButton_excluir.Text = "toolStripButton2";
             this.toolStripButton_excluir.ToolTipText = "Excluir Fornecedor";
+            this.toolStripButton_excluir.Click += new System.EventHandler(this.toolStripButton_excluir_Click);
             // 
             // tabPage1
             // 
+            this.tabPage1.Controls.Add(this.button_todos);
             this.tabPage1.Controls.Add(this.textBox_pesquisa);
             this.tabPage1.Controls.Add(this.label2);
             this.tabPage1.Controls.Add(this.cmb_categoria);
@@ -672,10 +638,21 @@
             this.tabPage1.Location = new System.Drawing.Point(4, 22);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(969, 405);
+            this.tabPage1.Size = new System.Drawing.Size(1104, 435);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "Busca Fornecedor";
             this.tabPage1.UseVisualStyleBackColor = true;
+            this.tabPage1.Click += new System.EventHandler(this.tabPage1_Click);
+            // 
+            // button_todos
+            // 
+            this.button_todos.Location = new System.Drawing.Point(694, 16);
+            this.button_todos.Name = "button_todos";
+            this.button_todos.Size = new System.Drawing.Size(159, 23);
+            this.button_todos.TabIndex = 6;
+            this.button_todos.Text = "&Todos os Fornecedores";
+            this.button_todos.UseVisualStyleBackColor = true;
+            this.button_todos.Click += new System.EventHandler(this.button_todos_Click);
             // 
             // textBox_pesquisa
             // 
@@ -732,11 +709,14 @@
             // dtg_for
             // 
             this.dtg_for.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dtg_for.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnF2;
             this.dtg_for.Location = new System.Drawing.Point(8, 52);
             this.dtg_for.Name = "dtg_for";
-            this.dtg_for.Size = new System.Drawing.Size(953, 345);
+            this.dtg_for.Size = new System.Drawing.Size(1088, 330);
             this.dtg_for.TabIndex = 0;
             this.dtg_for.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
+            this.dtg_for.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtg_for_CellDoubleClick);
+            this.dtg_for.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dtg_for_CellEnter);
             // 
             // tabControl1
             // 
@@ -746,7 +726,7 @@
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(977, 431);
+            this.tabControl1.Size = new System.Drawing.Size(1112, 461);
             this.tabControl1.TabIndex = 0;
             // 
             // toolTip1
@@ -758,13 +738,19 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ClientSize = new System.Drawing.Size(977, 431);
+            this.ClientSize = new System.Drawing.Size(1112, 461);
             this.Controls.Add(this.tabControl1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "fornecedores";
             this.Text = "Manutenção de Fornecedores";
             this.Load += new System.EventHandler(this.fornecedores_Load);
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_email)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_site)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_fant)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_razao)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox_cpf)).EndInit();
             this.toolStrip1.ResumeLayout(false);
             this.toolStrip1.PerformLayout();
             this.tabPage1.ResumeLayout(false);
@@ -783,9 +769,7 @@
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button btn_pesquisar;
-        private System.Windows.Forms.ComboBox cmb_categoria;
         private System.Windows.Forms.TextBox textBox_pesquisa;
-        private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ToolStrip toolStrip1;
         private System.Windows.Forms.ToolStripButton toolStripButton1;
         private System.Windows.Forms.Label label3;
@@ -816,15 +800,6 @@
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.TextBox textBox_numBanco;
         private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.Label label_email;
-        private System.Windows.Forms.Label label_cel;
-        private System.Windows.Forms.Label label_site;
-        private System.Windows.Forms.Label label_tel;
-        private System.Windows.Forms.Label label_fant;
-        private System.Windows.Forms.Label label_razao;
-        private System.Windows.Forms.Label label_cpf;
-        private System.Windows.Forms.Label label_CelGere;
-        private System.Windows.Forms.Label label_TelGer;
         private System.Windows.Forms.Label label30;
         private System.Windows.Forms.TextBox textBox_Obs;
         private System.Windows.Forms.Label label27;
@@ -839,5 +814,13 @@
         private System.Windows.Forms.MaskedTextBox maskedTextBox_TEL;
         private System.Windows.Forms.MaskedTextBox maskedTextBox_CNPJ;
         private System.Windows.Forms.MaskedTextBox maskedTextBox_CPF;
+        private System.Windows.Forms.PictureBox pictureBox_cpf;
+        private System.Windows.Forms.PictureBox pictureBox_fant;
+        private System.Windows.Forms.PictureBox pictureBox_razao;
+        private System.Windows.Forms.PictureBox pictureBox_site;
+        private System.Windows.Forms.PictureBox pictureBox_email;
+        private System.Windows.Forms.Button button_todos;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.ComboBox cmb_categoria;
     }
 }

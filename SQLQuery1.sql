@@ -2,6 +2,7 @@
 CREATE TABLE empresa(
 	id_empresa bigint identity NOT NULL,
 	nome_empresa VARCHAR(50),
+	excluido int NOT NULL,
 	CONSTRAINT pk_is_usuario PRIMARY KEY (id_empresa)
 );
 CREATE table usuario
@@ -14,6 +15,7 @@ CREATE table usuario
 	nivel_usuario int,
 	salario_usuario numeric(18,2),
 	id_empresa bigint,
+	excluido int NOT NULL,
 	CONSTRAINT pk_id_usuario PRIMARY KEY(id_usuario),
 	CONSTRAINT fk_id_empresa FOREIGN KEY (id_empresa) REFERENCES empresa (id_empresa)
 );
@@ -41,7 +43,7 @@ CREATE table fornecedor
 	celular_gerente_fornecedor bigint,
 	obs_fornecedor VARCHAR(100),
 	usuario_manutencao_fornecedor int,
-	
+	excluido int NOT NULL,
 	CONSTRAINT pk_id_fornecedor PRIMARY KEY (id_fornecedor),
 	CONSTRAINT fk_usuario_manutencao_fornecedor FOREIGN KEY (usuario_manutencao_fornecedor) REFERENCES usuario (id_usuario)
 );
@@ -52,6 +54,7 @@ CREATE TABLE documentos
 	descricao_doc VARCHAR(50) not null,
 	obs_doc VARCHAR(50),
 	usuario_manutencao_documentos int,
+	excluido int NOT NULL,
 	CONSTRAINT pk_id_doc PRIMARY KEY (id_doc),
 	CONSTRAINT fk_usuario_manutencao_doc FOREIGN KEY (usuario_manutencao_documentos) REFERENCES usuario (id_usuario)
 );
@@ -70,6 +73,7 @@ CREATE TABLE banco
 	obs_banco VARCHAR(50),
 	id_empresa bigint,
 	usuario_manutencao_banco int,
+	excluido int NOT NULL,
 	CONSTRAINT pk_id_banco PRIMARY KEY (id_banco),
 	CONSTRAINT fk_usuario_manutencao_banco FOREIGN KEY (usuario_manutencao_banco) REFERENCES usuario (id_usuario),
 	CONSTRAINT fk_empresa_banco FOREIGN KEY (id_empresa) REFERENCES empresa (id_empresa)
@@ -89,6 +93,7 @@ CREATE TABLE mov_lancamento
 	saldo_a_pagar numeric(18,2),
 	pago bit not null,
 	data_pagamento datetime,
+	excluido int NOT NULL,
 	CONSTRAINT fk_tipo_doc FOREIGN KEY (tipo_documento)  REFERENCES documentos (id_doc)
 
 

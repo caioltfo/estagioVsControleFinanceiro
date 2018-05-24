@@ -26,7 +26,7 @@ namespace Midas.Desktop
         private void button_entrar_Click(object sender, EventArgs e)
         {
             List<Usuario> user = new List<Usuario>();
-            user = Servico.buscarUsuarios();
+            user = Servico.buscarUsuarios(1);
             foreach (Usuario u in user)
             {
                 if (u.User_usuario.Equals(textBox_adm.Text))

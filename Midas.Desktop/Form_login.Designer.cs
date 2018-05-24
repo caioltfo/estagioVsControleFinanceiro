@@ -97,26 +97,34 @@
             // 
             // button_entrar
             // 
+            this.button_entrar.BackColor = System.Drawing.Color.Transparent;
+            this.button_entrar.FlatAppearance.BorderSize = 0;
+            this.button_entrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_entrar.Image = global::Midas.Desktop.Properties.Resources.icons8_login_arredondado_à_direita_48;
             this.button_entrar.Location = new System.Drawing.Point(30, 236);
             this.button_entrar.Name = "button_entrar";
             this.button_entrar.Size = new System.Drawing.Size(58, 55);
             this.button_entrar.TabIndex = 10;
-            this.button_entrar.UseVisualStyleBackColor = true;
+            this.button_entrar.UseVisualStyleBackColor = false;
             this.button_entrar.Click += new System.EventHandler(this.button_entrar_Click);
             // 
             // button2
             // 
+            this.button2.BackColor = System.Drawing.Color.Transparent;
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button2.Image = global::Midas.Desktop.Properties.Resources.icons8_cancel_48;
             this.button2.Location = new System.Drawing.Point(94, 236);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(58, 55);
             this.button2.TabIndex = 9;
-            this.button2.UseVisualStyleBackColor = true;
+            this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button_cadas
             // 
+            this.button_cadas.FlatAppearance.BorderSize = 0;
+            this.button_cadas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_cadas.Image = global::Midas.Desktop.Properties.Resources.icons8_plus_48;
             this.button_cadas.Location = new System.Drawing.Point(158, 236);
             this.button_cadas.Name = "button_cadas";
@@ -149,6 +157,8 @@
             // 
             // textBox_user
             // 
+            this.textBox_user.BackColor = System.Drawing.SystemColors.Window;
+            this.textBox_user.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.textBox_user.Location = new System.Drawing.Point(100, 141);
             this.textBox_user.Name = "textBox_user";
             this.textBox_user.Size = new System.Drawing.Size(380, 20);

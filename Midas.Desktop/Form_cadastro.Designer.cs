@@ -40,13 +40,13 @@
             this.label6 = new System.Windows.Forms.Label();
             this.textBox_salario = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.comboBox_nivel = new System.Windows.Forms.ComboBox();
             this.button_cadastrar = new System.Windows.Forms.Button();
             this.button_cancelar = new System.Windows.Forms.Button();
             this.comboBox_empresa = new System.Windows.Forms.ComboBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
+            this.comboBox_nivel = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // label2
@@ -147,15 +147,6 @@
             this.label7.TabIndex = 14;
             this.label7.Text = "Nivel de Acesso:";
             // 
-            // comboBox_nivel
-            // 
-            this.comboBox_nivel.FormattingEnabled = true;
-            this.comboBox_nivel.Location = new System.Drawing.Point(155, 219);
-            this.comboBox_nivel.Name = "comboBox_nivel";
-            this.comboBox_nivel.Size = new System.Drawing.Size(234, 21);
-            this.comboBox_nivel.TabIndex = 15;
-            this.comboBox_nivel.SelectedIndexChanged += new System.EventHandler(this.comboBox_nivel_SelectedIndexChanged);
-            // 
             // button_cadastrar
             // 
             this.button_cadastrar.Image = global::Midas.Desktop.Properties.Resources.icons8_login_arredondado_à_direita_48;
@@ -216,6 +207,15 @@
             this.label11.Text = "label_email";
             this.label11.Visible = false;
             // 
+            // comboBox_nivel
+            // 
+            this.comboBox_nivel.FormattingEnabled = true;
+            this.comboBox_nivel.Location = new System.Drawing.Point(155, 219);
+            this.comboBox_nivel.Name = "comboBox_nivel";
+            this.comboBox_nivel.Size = new System.Drawing.Size(234, 21);
+            this.comboBox_nivel.TabIndex = 15;
+            this.comboBox_nivel.SelectedIndexChanged += new System.EventHandler(this.comboBox_nivel_SelectedIndexChanged);
+            // 
             // Form_cadastro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -263,12 +263,12 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox textBox_salario;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ComboBox comboBox_nivel;
         private System.Windows.Forms.Button button_cadastrar;
         private System.Windows.Forms.Button button_cancelar;
         private System.Windows.Forms.ComboBox comboBox_empresa;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.ComboBox comboBox_nivel;
     }
 }
