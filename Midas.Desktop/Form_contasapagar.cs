@@ -210,6 +210,8 @@ namespace Midas.Desktop
                     row.Cells["excluido"].Style.BackColor = Color.Red;
                     row.Cells["valor_do_titulo"].Style.BackColor = Color.Red;
                     row.Cells["pago"].Style.BackColor = Color.Red;
+
+                    
                 }
                 if (Convert.ToDateTime(row.Cells["data_vencimento"].Value) == DateTime.Now && (decimal)row.Cells["valor_do_titulo"].Value < 0 && Convert.ToInt16(row.Cells["pago"].Value) == 0)
                 {
@@ -265,6 +267,14 @@ namespace Midas.Desktop
                     row.Cells["excluido"].Style.BackColor = Color.Olive;
                     row.Cells["valor_do_titulo"].Style.BackColor = Color.Olive;
                     row.Cells["pago"].Style.BackColor = Color.Olive;
+                    row.Cells["data_vencimento"].Style.ForeColor = Color.White; // entrada para depois já pagas
+                    row.Cells["pago"].Style.ForeColor = Color.White;
+                    row.Cells["data_pagamento"].Style.ForeColor = Color.White;
+                    row.Cells["id_lancamento"].Style.ForeColor = Color.White;
+                    row.Cells["favorecido"].Style.ForeColor = Color.White;
+                    row.Cells["excluido"].Style.ForeColor = Color.White;
+                    row.Cells["valor_do_titulo"].Style.ForeColor = Color.White;
+                    row.Cells["pago"].Style.ForeColor = Color.White;
                 }
                 if (Convert.ToDateTime(row.Cells["data_vencimento"].Value) == DateTime.Now && (decimal)row.Cells["valor_do_titulo"].Value > 0 && Convert.ToInt16(row.Cells["pago"].Value) == 0)
                 {
@@ -287,6 +297,15 @@ namespace Midas.Desktop
                     row.Cells["excluido"].Style.BackColor = Color.DimGray;
                     row.Cells["valor_do_titulo"].Style.BackColor = Color.DimGray;
                     row.Cells["pago"].Style.BackColor = Color.DimGray;
+
+                    row.Cells["data_vencimento"].Style.ForeColor = Color.White; // entrada para hj ja paga
+                    row.Cells["pago"].Style.ForeColor = Color.White;
+                    row.Cells["data_pagamento"].Style.ForeColor = Color.White;
+                    row.Cells["id_lancamento"].Style.ForeColor = Color.White;
+                    row.Cells["favorecido"].Style.ForeColor = Color.White;
+                    row.Cells["excluido"].Style.ForeColor = Color.White;
+                    row.Cells["valor_do_titulo"].Style.ForeColor = Color.White;
+                    row.Cells["pago"].Style.ForeColor = Color.White;
                 }
                 if (Convert.ToDateTime(row.Cells["data_vencimento"].Value) < Convert.ToDateTime(row.Cells["data_pagamento"].Value) && Convert.ToInt16(row.Cells["pago"].Value) == 1 &&  Convert.ToDecimal(row.Cells["valor_do_titulo"].Value) < 0)
                 {
@@ -299,7 +318,17 @@ namespace Midas.Desktop
                    
                     row.Cells["valor_do_titulo"].Style.BackColor = Color.Blue;
                     row.Cells["pago"].Style.BackColor = Color.Blue;
-                    
+
+                    row.Cells["pago"].Style.ForeColor = Color.White; // se for pago a saida atrasado
+                    row.Cells["data_vencimento"].Style.ForeColor = Color.White;
+                    row.Cells["id_lancamento"].Style.ForeColor = Color.White;
+                    row.Cells["data_pagamento"].Style.ForeColor = Color.White;
+                    row.Cells["favorecido"].Style.ForeColor = Color.White;
+                    row.Cells["excluido"].Style.ForeColor = Color.White;
+
+                    row.Cells["valor_do_titulo"].Style.ForeColor = Color.White;
+                    row.Cells["pago"].Style.ForeColor = Color.White;
+
                 }
                 if (Convert.ToDateTime(row.Cells["data_vencimento"].Value) >= Convert.ToDateTime(row.Cells["data_pagamento"].Value) && Convert.ToInt16(row.Cells["pago"].Value) == 1 && Convert.ToDecimal(row.Cells["valor_do_titulo"].Value) < 0)
                 {
@@ -325,6 +354,16 @@ namespace Midas.Desktop
 
                     row.Cells["valor_do_titulo"].Style.BackColor = Color.Maroon;
                     row.Cells["pago"].Style.BackColor = Color.Maroon;
+
+                    row.Cells["pago"].Style.ForeColor = Color.White; // entrada efetuada atrsada
+                    row.Cells["data_vencimento"].Style.ForeColor = Color.White;
+                    row.Cells["id_lancamento"].Style.ForeColor = Color.White;
+                    row.Cells["data_pagamento"].Style.ForeColor = Color.White;
+                    row.Cells["favorecido"].Style.ForeColor = Color.White;
+                    row.Cells["excluido"].Style.ForeColor = Color.White;
+
+                    row.Cells["valor_do_titulo"].Style.ForeColor = Color.White;
+                    row.Cells["pago"].Style.ForeColor = Color.White;
 
                 }
 
@@ -358,11 +397,59 @@ namespace Midas.Desktop
             frm.Show();
         }
         
+        public List<Mov_lancamento> buscarMov_lancamentoDataLancamento(DateTime data, int excluido)
+        {
+            SqlDataReader dr = ConexaoBanco.selecionar("SELECT id_lancamento, data_lancamento, data_vencimento, favorecido, data_pagamento, valor_do_titulo, pago FROM mov_lancamento WHERE excluido = " + excluido + " AND data_lancamento = '" + data + "'");
+            List<Mov_lancamento> mov = new List<Mov_lancamento>();
+            while (dr.Read())
+            {
+                Mov_lancamento movi = new Mov_lancamento();
+                movi.Id_lancamento = Convert.ToInt16(dr["id_lancamento"]);
+                movi.Data_lancamento = Convert.ToDateTime(dr["data_lancamento"]);
+                movi.Data_vencimento = Convert.ToDateTime(dr["data_vencimento"]);
+
+                movi.Data_pagamento = Convert.ToDateTime(dr["data_pagamento"]);
+                // movi.Documento.Id_doc = Convert.ToInt16(dr["tipo_documento"]);
+                movi.Favorecido = dr["favorecido"].ToString();
+                movi.Valor_do_titulo = Convert.ToInt64(dr["valor_do_titulo"]);
+                movi.Pago = Convert.ToInt16(dr["pago"]);
+                mov.Add(movi);
+
+            }
+            dr.Close();
+            return mov;
+        }
+
+        public List<Mov_lancamento> buscarMov_lancamentoDataVencimento(DateTime data, int excluido)
+        {
+            SqlDataReader dr = ConexaoBanco.selecionar("SELECT id_lancamento, data_lancamento, data_vencimento, favorecido, data_pagamento, valor_do_titulo, pago FROM mov_lancamento WHERE excluido = " + excluido + " AND data_vencimento = '" + data + "'");
+            List<Mov_lancamento> mov = new List<Mov_lancamento>();
+            while (dr.Read())
+            {
+                Mov_lancamento movi = new Mov_lancamento();
+                movi.Id_lancamento = Convert.ToInt16(dr["id_lancamento"]);
+                movi.Data_lancamento = Convert.ToDateTime(dr["data_lancamento"]);
+                movi.Data_vencimento = Convert.ToDateTime(dr["data_vencimento"]);
+
+                movi.Data_pagamento = Convert.ToDateTime(dr["data_pagamento"]);
+                // movi.Documento.Id_doc = Convert.ToInt16(dr["tipo_documento"]);
+                movi.Favorecido = dr["favorecido"].ToString();
+                movi.Valor_do_titulo = Convert.ToInt64(dr["valor_do_titulo"]);
+                movi.Pago = Convert.ToInt16(dr["pago"]);
+                mov.Add(movi);
+
+            }
+            dr.Close();
+            return mov;
+        }
+
+
+
         private void button_pesquisa_Click(object sender, EventArgs e)
         {
            if(comboBox_categoria.SelectedIndex == 0)
             {
-                dataGridView_movimentos.DataSource = Servico.buscarMov_lancamentoPorDataLancamento(Convert.ToDateTime(textBox_pesquisa.Text),0);
+                dataGridView_movimentos.DataSource = this.buscarMov_lancamentoDataLancamento(Convert.ToDateTime(textBox_pesquisa.Text),0);
                 pintarCelulas();
                 somarTotais(true);
                 
