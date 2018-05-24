@@ -108,6 +108,50 @@ namespace Midas.Desktop
             dr.Close();
             return mov;
         }
+        public List<Mov_lancamento> atualizarTodosVencidos()
+        {
+            SqlDataReader dr = ConexaoBanco.selecionar("SELECT id_lancamento, data_lancamento, data_vencimento, tipo_documento, favorecido, data_pagamento, valor_do_titulo, pago FROM mov_lancamento WHERE excluido = 0 AND data_vencimento < '" + DateTime.Now +"' AND pago = 0");
+            List<Mov_lancamento> mov = new List<Mov_lancamento>();
+            while (dr.Read())
+            {
+                Mov_lancamento movi = new Mov_lancamento();
+                movi.Id_lancamento = Convert.ToInt16(dr["id_lancamento"]);
+                movi.Data_lancamento = Convert.ToDateTime(dr["data_lancamento"]);
+                movi.Data_vencimento = Convert.ToDateTime(dr["data_vencimento"]);
+
+                movi.Data_pagamento = Convert.ToDateTime(dr["data_pagamento"]);
+                // movi.Documento.Id_doc = Convert.ToInt16(dr["tipo_documento"]);
+                movi.Favorecido = dr["favorecido"].ToString();
+                movi.Valor_do_titulo = Convert.ToInt64(dr["valor_do_titulo"]);
+                movi.Pago = Convert.ToInt16(dr["pago"]);
+                mov.Add(movi);
+
+            }
+            dr.Close();
+            return mov;
+        }
+        public List<Mov_lancamento> atualizarTodosPagos()
+        {
+            SqlDataReader dr = ConexaoBanco.selecionar("SELECT id_lancamento, data_lancamento, data_vencimento, tipo_documento, favorecido, data_pagamento, valor_do_titulo, pago FROM mov_lancamento WHERE excluido = 0 AND  pago = 1");
+            List<Mov_lancamento> mov = new List<Mov_lancamento>();
+            while (dr.Read())
+            {
+                Mov_lancamento movi = new Mov_lancamento();
+                movi.Id_lancamento = Convert.ToInt16(dr["id_lancamento"]);
+                movi.Data_lancamento = Convert.ToDateTime(dr["data_lancamento"]);
+                movi.Data_vencimento = Convert.ToDateTime(dr["data_vencimento"]);
+
+                movi.Data_pagamento = Convert.ToDateTime(dr["data_pagamento"]);
+                // movi.Documento.Id_doc = Convert.ToInt16(dr["tipo_documento"]);
+                movi.Favorecido = dr["favorecido"].ToString();
+                movi.Valor_do_titulo = Convert.ToInt64(dr["valor_do_titulo"]);
+                movi.Pago = Convert.ToInt16(dr["pago"]);
+                mov.Add(movi);
+
+            }
+            dr.Close();
+            return mov;
+        }
         public void somarTotais(Boolean especificar)
         {
             
@@ -364,6 +408,18 @@ namespace Midas.Desktop
                 button_deletar.Enabled = false;
             }
            
+        }
+
+        private void button_vencidos_Click(object sender, EventArgs e)
+        {
+            dataGridView_movimentos.DataSource = atualizarTodosVencidos();
+            pintarCelulas();
+        }
+
+        private void button_pagos_Click(object sender, EventArgs e)
+        {
+            dataGridView_movimentos.DataSource = atualizarTodosPagos();
+            pintarCelulas();
         }
     }
 }

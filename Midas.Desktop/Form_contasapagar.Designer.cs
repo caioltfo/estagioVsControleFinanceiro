@@ -91,6 +91,7 @@
             this.button_novo_lanca = new System.Windows.Forms.Button();
             this.button_rel = new System.Windows.Forms.Button();
             this.button_baixa = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_movimentos)).BeginInit();
             this.Pesquisa.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -575,6 +576,7 @@
             // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.button1);
             this.groupBox4.Controls.Add(this.dateTimePicker2);
             this.groupBox4.Controls.Add(this.label27);
             this.groupBox4.Controls.Add(this.dateTimePicker1);
@@ -653,6 +655,7 @@
             this.button_pagos.Text = "&Mostrar todos os lançamentos Pagos";
             this.button_pagos.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button_pagos.UseVisualStyleBackColor = false;
+            this.button_pagos.Click += new System.EventHandler(this.button_pagos_Click);
             // 
             // button_vencidos
             // 
@@ -670,6 +673,7 @@
             this.button_vencidos.Text = "&Mostrar todos os lançamentos Vencidos";
             this.button_vencidos.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button_vencidos.UseVisualStyleBackColor = false;
+            this.button_vencidos.Click += new System.EventHandler(this.button_vencidos_Click);
             // 
             // button_deletar
             // 
@@ -761,6 +765,23 @@
             this.button_baixa.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.button_baixa.UseVisualStyleBackColor = false;
             this.button_baixa.Click += new System.EventHandler(this.button_baixa_Click);
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.Transparent;
+            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.Yellow;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.button1.Image = global::Midas.Desktop.Properties.Resources.icons8_pesquisar_481;
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(930, 7);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(116, 54);
+            this.button1.TabIndex = 17;
+            this.button1.Text = "&Pesquisar";
+            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button1.UseVisualStyleBackColor = false;
             // 
             // Form_contasapagar
             // 
@@ -864,5 +885,6 @@
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button button1;
     }
 }
