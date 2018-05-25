@@ -65,7 +65,20 @@ namespace Midas.Model.Servico
                 return cnpj.EndsWith(digito);
             }
         }
-        
+        public static List<String> ConvertToListString(DataTable table)
+        {
+            List<string> str = new List<string>();
+            foreach (DataRow row in table.Rows)
+            {
+                foreach (DataColumn Col in table.Columns)
+                {
+                    str.Add(row[Col].ToString());
+                }
+
+
+            }
+            return str;
+        }
         public static List<object> ConvertToList(DataTable table)
         {
             if (table == null)
