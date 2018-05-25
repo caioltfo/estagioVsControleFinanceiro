@@ -167,8 +167,8 @@ namespace Midas.Desktop
                 valPago = 0;
                 valRecebidos = 0;
                 aux = 0;
-            }
-            else
+            } 
+            else if(especificar == true)
             {
                 label_total_pesquisado.Text = "0,00";
                 foreach (DataGridViewRow col in dataGridView_movimentos.Rows)
@@ -392,7 +392,7 @@ namespace Midas.Desktop
 
         private void pictureBox_pesquisa_Click(object sender, EventArgs e)
         {
-            Form_pesq_favorecido frm = new Form_pesq_favorecido(textBox1.Text);
+            Form_pesq_favorecido frm = new Form_pesq_favorecido(textBox_favo.Text);
             frm.MdiParent = this.MdiParent;
             frm.Show();
         }
@@ -442,7 +442,28 @@ namespace Midas.Desktop
             dr.Close();
             return mov;
         }
+        public List<Mov_lancamento> buscarMov_lancamentoPorTudo(DateTime data_vencimento,DateTime data_lancamento, String favorecido, int excluido)
+        {
+            SqlDataReader dr = ConexaoBanco.selecionar("SELECT id_lancamento, data_lancamento, data_vencimento, favorecido, data_pagamento, valor_do_titulo, pago FROM mov_lancamento WHERE excluido = " + excluido + " AND data_vencimento = '" + data_vencimento + "' AND data_lancamento = '" + data_lancamento+"' AND favorecido = '"+favorecido+"'");
+            List<Mov_lancamento> mov = new List<Mov_lancamento>();
+            while (dr.Read())
+            {
+                Mov_lancamento movi = new Mov_lancamento();
+                movi.Id_lancamento = Convert.ToInt16(dr["id_lancamento"]);
+                movi.Data_lancamento = Convert.ToDateTime(dr["data_lancamento"]);
+                movi.Data_vencimento = Convert.ToDateTime(dr["data_vencimento"]);
 
+                movi.Data_pagamento = Convert.ToDateTime(dr["data_pagamento"]);
+                // movi.Documento.Id_doc = Convert.ToInt16(dr["tipo_documento"]);
+                movi.Favorecido = dr["favorecido"].ToString();
+                movi.Valor_do_titulo = Convert.ToInt64(dr["valor_do_titulo"]);
+                movi.Pago = Convert.ToInt16(dr["pago"]);
+                mov.Add(movi);
+
+            }
+            dr.Close();
+            return mov;
+        }
 
 
         private void button_pesquisa_Click(object sender, EventArgs e)
@@ -472,25 +493,35 @@ namespace Midas.Desktop
         public DataGridViewRow row;
         private void button_baixa_Click(object sender, EventArgs e)
         {
-            DialogResult res = MessageBox.Show("Deseja mesmo dar baixa no movimento do favorecido " + favorecido + " ?", "Midas - Controle Financeiro - Movimentos", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if(res == DialogResult.Yes)
+            if (Convert.ToInt16(dataGridView_movimentos.CurrentRow.Cells[10].Value) == 0)
             {
-                
-                ConexaoBanco.executar("UPDATE mov_lancamento SET pago = 1, data_pagamento =  '" + Convert.ToDateTime(DateTime.Now) + "' WHERE id_lancamento = " + Convert.ToInt16(dataGridView_movimentos.CurrentRow.Cells[1].Value));
-                MessageBox.Show("Movimento pago na data: "+DateTime.Now+" com sucesso!", "Midas - Controle Financeiro - Movimentos", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                atualizarTodos();
-                button_baixa.Enabled =false;
-                button_deletar.Enabled = false;
-            }
-            else
+
+
+                DialogResult res = MessageBox.Show("Deseja mesmo dar baixa no movimento do favorecido " + favorecido + " ?", "Midas - Controle Financeiro - Movimentos", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (res == DialogResult.Yes)
+                {
+
+                    ConexaoBanco.executar("UPDATE mov_lancamento SET pago = 1, data_pagamento =  '" + Convert.ToDateTime(DateTime.Now) + "' WHERE id_lancamento = " + Convert.ToInt16(dataGridView_movimentos.CurrentRow.Cells[1].Value));
+                    MessageBox.Show("Movimento pago na data: " + DateTime.Now + " com sucesso!", "Midas - Controle Financeiro - Movimentos", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    atualizarTodos();
+                    button_baixa.Enabled = false;
+                    button_deletar.Enabled = false;
+                }
+                else
+                {
+                    button_baixa.Enabled = false;
+                    button_deletar.Enabled = false;
+                }
+            }else
             {
-                button_baixa.Enabled = false;
-                button_deletar.Enabled = false;
+                MessageBox.Show("Movimento de " + dataGridView_movimentos.CurrentRow.Cells[2].Value + " Já está efetuado", "Midas - Controle Financeiro", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
+
         }
         
         private void dataGridView_movimentos_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
+            MessageBox.Show("Controles de baixa e exclusão liberados para " + dataGridView_movimentos.CurrentRow.Cells[2].Value, "Midas - Controle Financeiro", MessageBoxButtons.OK, MessageBoxIcon.Information);
             button_baixa.Enabled = true;
             button_deletar.Enabled = true;
             button_baixa.Focus();
@@ -517,12 +548,15 @@ namespace Midas.Desktop
         private void button_vencidos_Click(object sender, EventArgs e)
         {
             dataGridView_movimentos.DataSource = atualizarTodosVencidos();
+            somarTotais(true);
+
             pintarCelulas();
         }
 
         private void button_pagos_Click(object sender, EventArgs e)
         {
             dataGridView_movimentos.DataSource = atualizarTodosPagos();
+            somarTotais(true);
             pintarCelulas();
         }
 
@@ -536,6 +570,21 @@ namespace Midas.Desktop
             {
                 textBox_pesquisa.Mask = "";
             }
+        }
+
+        private void button1_Click_2(object sender, EventArgs e)
+        {
+            if(textBox_favo.Text != "")
+            {
+                dataGridView_movimentos.DataSource = buscarMov_lancamentoPorTudo(Convert.ToDateTime(dateTimePicker_DataVencimento.Text),Convert.ToDateTime( dateTimePicker_dataLancamento.Text), textBox_favo.Text, 0) ;
+                pintarCelulas();
+                somarTotais(true);
+            }
+        }
+
+        private void dataGridView_movimentos_CellEnter(object sender, DataGridViewCellEventArgs e)
+        {
+           
         }
     }
 }

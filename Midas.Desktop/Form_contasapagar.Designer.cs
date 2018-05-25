@@ -34,6 +34,7 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.Pesquisa = new System.Windows.Forms.GroupBox();
+            this.textBox_pesquisa = new System.Windows.Forms.MaskedTextBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.comboBox_categoria = new System.Windows.Forms.ComboBox();
@@ -76,12 +77,13 @@
             this.label10 = new System.Windows.Forms.Label();
             this.panel_red = new System.Windows.Forms.Panel();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.button1 = new System.Windows.Forms.Button();
+            this.dateTimePicker_DataVencimento = new System.Windows.Forms.DateTimePicker();
             this.label27 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePicker_dataLancamento = new System.Windows.Forms.DateTimePicker();
             this.label26 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox_favo = new System.Windows.Forms.TextBox();
             this.button_pagos = new System.Windows.Forms.Button();
             this.button_vencidos = new System.Windows.Forms.Button();
             this.button_deletar = new System.Windows.Forms.Button();
@@ -89,8 +91,6 @@
             this.button_novo_lanca = new System.Windows.Forms.Button();
             this.button_rel = new System.Windows.Forms.Button();
             this.button_baixa = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.textBox_pesquisa = new System.Windows.Forms.MaskedTextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView_movimentos)).BeginInit();
             this.Pesquisa.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -107,6 +107,7 @@
             this.dataGridView_movimentos.Size = new System.Drawing.Size(1024, 292);
             this.dataGridView_movimentos.TabIndex = 0;
             this.dataGridView_movimentos.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_movimentos_CellContentDoubleClick);
+            this.dataGridView_movimentos.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView_movimentos_CellEnter);
             // 
             // label1
             // 
@@ -143,6 +144,13 @@
             this.Pesquisa.TabIndex = 10;
             this.Pesquisa.TabStop = false;
             this.Pesquisa.Text = "Pesquisa específica";
+            // 
+            // textBox_pesquisa
+            // 
+            this.textBox_pesquisa.Location = new System.Drawing.Point(366, 19);
+            this.textBox_pesquisa.Name = "textBox_pesquisa";
+            this.textBox_pesquisa.Size = new System.Drawing.Size(268, 20);
+            this.textBox_pesquisa.TabIndex = 15;
             // 
             // label5
             // 
@@ -560,12 +568,12 @@
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.button1);
-            this.groupBox4.Controls.Add(this.dateTimePicker2);
+            this.groupBox4.Controls.Add(this.dateTimePicker_DataVencimento);
             this.groupBox4.Controls.Add(this.label27);
-            this.groupBox4.Controls.Add(this.dateTimePicker1);
+            this.groupBox4.Controls.Add(this.dateTimePicker_dataLancamento);
             this.groupBox4.Controls.Add(this.label26);
             this.groupBox4.Controls.Add(this.label6);
-            this.groupBox4.Controls.Add(this.textBox1);
+            this.groupBox4.Controls.Add(this.textBox_favo);
             this.groupBox4.Dock = System.Windows.Forms.DockStyle.Top;
             this.groupBox4.Location = new System.Drawing.Point(0, 61);
             this.groupBox4.Name = "groupBox4";
@@ -574,12 +582,30 @@
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Pesquisa combinada";
             // 
-            // dateTimePicker2
+            // button1
             // 
-            this.dateTimePicker2.Location = new System.Drawing.Point(734, 23);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(158, 20);
-            this.dateTimePicker2.TabIndex = 5;
+            this.button1.BackColor = System.Drawing.Color.Transparent;
+            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.Yellow;
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            this.button1.Image = global::Midas.Desktop.Properties.Resources.icons8_pesquisar_481;
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.Location = new System.Drawing.Point(930, 7);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(116, 54);
+            this.button1.TabIndex = 17;
+            this.button1.Text = "&Pesquisar";
+            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click_2);
+            // 
+            // dateTimePicker_DataVencimento
+            // 
+            this.dateTimePicker_DataVencimento.Location = new System.Drawing.Point(734, 23);
+            this.dateTimePicker_DataVencimento.Name = "dateTimePicker_DataVencimento";
+            this.dateTimePicker_DataVencimento.Size = new System.Drawing.Size(158, 20);
+            this.dateTimePicker_DataVencimento.TabIndex = 5;
             // 
             // label27
             // 
@@ -590,12 +616,12 @@
             this.label27.TabIndex = 4;
             this.label27.Text = "Data de vencimento:";
             // 
-            // dateTimePicker1
+            // dateTimePicker_dataLancamento
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(459, 23);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(157, 20);
-            this.dateTimePicker1.TabIndex = 3;
+            this.dateTimePicker_dataLancamento.Location = new System.Drawing.Point(459, 23);
+            this.dateTimePicker_dataLancamento.Name = "dateTimePicker_dataLancamento";
+            this.dateTimePicker_dataLancamento.Size = new System.Drawing.Size(157, 20);
+            this.dateTimePicker_dataLancamento.TabIndex = 3;
             // 
             // label26
             // 
@@ -615,12 +641,12 @@
             this.label6.TabIndex = 1;
             this.label6.Text = "Favorecido:";
             // 
-            // textBox1
+            // textBox_favo
             // 
-            this.textBox1.Location = new System.Drawing.Point(86, 23);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(245, 20);
-            this.textBox1.TabIndex = 0;
+            this.textBox_favo.Location = new System.Drawing.Point(86, 23);
+            this.textBox_favo.Name = "textBox_favo";
+            this.textBox_favo.Size = new System.Drawing.Size(245, 20);
+            this.textBox_favo.TabIndex = 0;
             // 
             // button_pagos
             // 
@@ -749,30 +775,6 @@
             this.button_baixa.UseVisualStyleBackColor = false;
             this.button_baixa.Click += new System.EventHandler(this.button_baixa_Click);
             // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.Transparent;
-            this.button1.FlatAppearance.BorderColor = System.Drawing.Color.Yellow;
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.button1.Image = global::Midas.Desktop.Properties.Resources.icons8_pesquisar_481;
-            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(930, 7);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(116, 54);
-            this.button1.TabIndex = 17;
-            this.button1.Text = "&Pesquisar";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.button1.UseVisualStyleBackColor = false;
-            // 
-            // textBox_pesquisa
-            // 
-            this.textBox_pesquisa.Location = new System.Drawing.Point(366, 19);
-            this.textBox_pesquisa.Name = "textBox_pesquisa";
-            this.textBox_pesquisa.Size = new System.Drawing.Size(268, 20);
-            this.textBox_pesquisa.TabIndex = 15;
-            // 
             // Form_contasapagar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -867,12 +869,12 @@
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.Button button_vencidos;
         private System.Windows.Forms.Button button_pagos;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.DateTimePicker dateTimePicker_DataVencimento;
         private System.Windows.Forms.Label label27;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dateTimePicker_dataLancamento;
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox_favo;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.MaskedTextBox textBox_pesquisa;
     }
